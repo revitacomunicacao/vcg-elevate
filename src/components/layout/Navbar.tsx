@@ -12,7 +12,8 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsOpen(false);
     if (!isHome) {
-      window.location.href = `/#${id}`;
+      const base = import.meta.env.BASE_URL;
+      window.location.href = `${base}#${id}`;
       return;
     }
     const el = document.getElementById(id);
