@@ -1,0 +1,58 @@
+import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer id="contato" className="bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 lg:px-8 py-16">
+        <div className="grid md:grid-cols-3 gap-12">
+          {/* Brand */}
+          <div>
+            <h3 className="text-2xl font-bold mb-4">VCG Advocacia</h3>
+            <p className="text-primary-foreground/70 text-sm leading-relaxed">
+              Advocacia Vinicius Carneiro Gonçalves. Tradição, ética e compromisso
+              com a excelência na defesa dos seus direitos.
+            </p>
+            <p className="mt-4 text-primary-foreground/60 text-xs">OAB/MG nº 5.217</p>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-serif text-lg font-semibold mb-4">Contato</h4>
+            <div className="space-y-3 text-sm text-primary-foreground/80">
+              <a href="tel:+553433333333" className="flex items-center gap-3 hover:text-secondary transition-colors">
+                <Phone className="h-4 w-4 shrink-0" />
+                (34) 3333-3333
+              </a>
+              <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-secondary transition-colors">
+                <MessageCircle className="h-4 w-4 shrink-0" />
+                (34) 99999-9999
+              </a>
+              <a href="mailto:contato@vcg.adv.br" className="flex items-center gap-3 hover:text-secondary transition-colors">
+                <Mail className="h-4 w-4 shrink-0" />
+                contato@vcg.adv.br
+              </a>
+            </div>
+          </div>
+
+          {/* Address */}
+          <div>
+            <h4 className="font-serif text-lg font-semibold mb-4">Endereço</h4>
+            <div className="flex items-start gap-3 text-sm text-primary-foreground/80">
+              <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+              <p>
+                Rua Exemplo, 123 — Centro<br />
+                Uberaba/MG — CEP 38010-000
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-xs text-primary-foreground/50">
+          © {new Date().getFullYear()} VCG Advocacia. Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
