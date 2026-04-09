@@ -1,6 +1,6 @@
 import { Scale, Shield, Award } from "lucide-react";
 import { motion } from "framer-motion";
-import quemSomosBg from "@/assets/quemsomos_bg.jpg";
+import fachadaImg from "@/assets/fachada_escritorio.webp";
 
 const values = [
   { icon: Scale, title: "Ética", desc: "Atuação pautada nos mais altos padrões éticos e de integridade profissional." },
