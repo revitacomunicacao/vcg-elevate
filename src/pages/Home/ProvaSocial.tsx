@@ -21,8 +21,11 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
       },
       { threshold: 0.5 }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    const current = ref.current;
+    if (current) observer.observe(current);
+    return () => {
+      if (current) observer.unobserve(current);
+    };
   }, [started]);
 
   useEffect(() => {
