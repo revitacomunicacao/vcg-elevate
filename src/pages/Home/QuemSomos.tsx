@@ -1,6 +1,6 @@
 import { Scale, Shield, Award } from "lucide-react";
 import { motion } from "framer-motion";
-import quemSomosBg from "@/assets/quemsomos_bg.jpg";
+import fachadaImg from "@/assets/fachada_escritorio.webp";
 
 const values = [
   { icon: Scale, title: "Ética", desc: "Atuação pautada nos mais altos padrões éticos e de integridade profissional." },
@@ -23,7 +23,7 @@ const QuemSomos = () => {
           >
             <div className="absolute -inset-4 bg-primary/5 rounded-2xl" />
             <img
-              src={quemSomosBg}
+              src={fachadaImg}
               alt="Escritório de advocacia"
               className="relative rounded-xl shadow-lg w-full object-cover h-80"
               loading="lazy"
