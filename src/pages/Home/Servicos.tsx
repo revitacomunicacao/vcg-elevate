@@ -78,6 +78,13 @@ const categories = [
       "Elaboração e análise de contratos",
     ],
   },
+  {
+    icon: Briefcase,
+    title: "Acompanhamento",
+    items: [
+      "Acompanhamento de processos diversos",
+    ],
+  },
 ];
 
 const fadeUp = {

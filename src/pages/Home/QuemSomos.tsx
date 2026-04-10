@@ -1,6 +1,13 @@
 import { Scale, Shield, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import fachadaImg from "@/assets/fachada_escritorio.webp";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const values = [
   { icon: Scale, title: "Ética", desc: "Atuação pautada nos mais altos padrões éticos e de integridade profissional." },
@@ -8,11 +15,13 @@ const values = [
   { icon: Award, title: "Excelência", desc: "Busca contínua por resultados excepcionais e atualização jurídica permanente." },
 ];
 
+const carouselImages = Array(5).fill(fachadaImg);
+
 const QuemSomos = () => {
   return (
     <section id="quem-somos" className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -24,7 +33,7 @@ const QuemSomos = () => {
             <div className="absolute -inset-4 bg-primary/5 rounded-2xl" />
             <img
               src={fachadaImg}
-              alt="Escritório de advocacia"
+              alt="Fachada do escritório VCG Advocacia"
               className="relative rounded-xl shadow-lg w-full object-cover h-80"
               loading="lazy"
               width={1920}
@@ -41,18 +50,60 @@ const QuemSomos = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <span className="text-secondary font-sans text-sm tracking-[0.2em] uppercase">Sobre nós</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">Quem Somos</h2>
-            <p className="text-muted-foreground font-sans leading-relaxed mb-4">
-              Fundado em 2000 pelo Dr. Vinicius Carneiro Gonçalves, o escritório VCG Advocacia
-              é referência em Direito Civil, Família e Sucessões em Uberaba e região do Triângulo Mineiro.
-            </p>
-            <p className="text-muted-foreground font-sans leading-relaxed">
-              Com mais de duas décadas de atuação, oferecemos atendimento boutique, próximo e humanizado,
-              tratando cada caso com a atenção e o cuidado que merece.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">Bem-vindo ao nosso escritório virtual!</h2>
+            <div className="space-y-4 text-muted-foreground font-sans leading-relaxed">
+              <p>
+                O escritório foi fundado no ano de 2000 pelo advogado Vinicius Carneiro Gonçalves que, desde então, tem como meta precípua a prestação de serviços de excelência.
+              </p>
+              <p>
+                Adotamos o formato europeu denominado "escritório boutique", também utilizado nos grandes centros do Brasil.
+              </p>
+              <p>
+                Esse novo modelo tem como característica a atuação de sua equipe em determinados ramos do Direito, permitindo que seus integrantes sejam altamente especializados, atualizados e experientes no que fazem.
+              </p>
+              <p>
+                Esse novo conceito é marcado também por um atendimento profissional e personalizado, o que valoriza a individualidade dos clientes, sejam eles pessoas físicas ou jurídicas.
+              </p>
+              <p>
+                O nosso escritório está localizado no bairro Universitário, na cidade de Uberaba/MG, a 200 metros do Fórum da Justiça Estadual.
+              </p>
+              <p>
+                Dedicação, honestidade, ética e compromisso são alguns de nossos principais valores.
+              </p>
+              <p>
+                O escritório está registrado na Ordem dos Advogados do Brasil - Seção Minas Gerais, sob o nº 5217.
+              </p>
+            </div>
           </motion.div>
         </div>
 
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <Carousel opts={{ loop: true }} className="w-full max-w-4xl mx-auto">
+            <CarouselContent>
+              {carouselImages.map((src, i) => (
+                <CarouselItem key={i}>
+                  <img
+                    src={src}
+                    alt={`Escritório VCG Advocacia - Foto ${i + 1}`}
+                    className="rounded-xl w-full h-64 md:h-80 object-cover"
+                    loading="lazy"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
+        </motion.div>
+
+        {/* Values cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {values.map((v, i) => (
             <motion.div
