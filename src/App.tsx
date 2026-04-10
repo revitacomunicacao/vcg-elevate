@@ -7,6 +7,7 @@ import Home from "./pages/Home/Index";
 import Civil from "./pages/Atuacao/Civil";
 import Familia from "./pages/Atuacao/Familia";
 import Sucessoes from "./pages/Atuacao/Sucessoes";
+import CorpoJuridico from "./pages/CorpoJuridico/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/atuacao/civil" element={<Civil />} />
           <Route path="/atuacao/familia" element={<Familia />} />
           <Route path="/atuacao/sucessoes" element={<Sucessoes />} />
+          <Route path="/corpo-juridico" element={<CorpoJuridico />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

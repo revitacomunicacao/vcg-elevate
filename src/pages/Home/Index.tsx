@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import QuemSomos from "./QuemSomos";
 import NossaEquipe from "./NossaEquipe";
 import Atuacao from "./Atuacao";
+import Servicos from "./Servicos";
 import ProvaSocial from "./ProvaSocial";
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
       <QuemSomos />
       <NossaEquipe />
       <Atuacao />
+      <Servicos />
       <ProvaSocial />
       <Footer />
     </div>
