@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 const stats = [
   { value: 24, suffix: "+", label: "Anos de Atuação" },
   { value: 500, suffix: "+", label: "Clientes Atendidos" },
-  { value: 1200, suffix: "+", label: "Casos Resolvidos" },
   { value: 98, suffix: "%", label: "Satisfação dos Clientes" },
 ];
 
@@ -78,7 +77,7 @@ const ProvaSocial = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
