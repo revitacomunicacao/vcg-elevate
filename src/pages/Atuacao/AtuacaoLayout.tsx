@@ -5,6 +5,7 @@ import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { NAVBAR_OFFSET_PX } from "@/lib/logo";
 
 interface Props {
   title: string;
@@ -18,7 +19,7 @@ const AtuacaoLayout = ({ title, subtitle, children }: Props) => {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-20 bg-primary">
+      <section className="bg-primary" style={{ paddingTop: `${NAVBAR_OFFSET_PX}px` }}>
         <div className="container mx-auto px-4 lg:px-8 py-20">
           <Link
             to="/"

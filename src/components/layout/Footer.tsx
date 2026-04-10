@@ -1,5 +1,7 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import logoFooter from "@/assets/logo-vinicius-carneiro-goncalves-advocacia-footer.png";
+import { LOGO_INTRINSIC_HEIGHT, LOGO_INTRINSIC_WIDTH } from "@/lib/logo";
 
 const Footer = () => {
   return (
@@ -8,7 +10,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">VCG Advocacia</h3>
+            <div className="mb-4" style={{ lineHeight: 0 }}>
+              <img
+                src={logoFooter}
+                alt="Advocacia Vinicius Carneiro Gonçalves"
+                width={LOGO_INTRINSIC_WIDTH}
+                height={LOGO_INTRINSIC_HEIGHT}
+                decoding="async"
+              />
+            </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
               Advocacia Vinicius Carneiro Gonçalves. Tradição, ética e compromisso
               com a excelência na defesa dos seus direitos.

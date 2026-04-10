@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import logoFull from "@/assets/logo-vinicius-carneiro-goncalves-advocacia.jpg.jpeg";
+import { LOGO_INTRINSIC_HEIGHT, LOGO_INTRINSIC_WIDTH } from "@/lib/logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,14 +31,16 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-[#ffffff]">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center shrink-0">
+        <div className="flex items-center justify-between py-2">
+          <Link to="/" className="flex shrink-0" style={{ lineHeight: 0 }}>
             <img
               src={logoFull}
               alt="Advocacia Vinicius Carneiro Gonçalves"
-              className="h-9 sm:h-10 md:h-12 w-auto max-w-[min(100%,220px)] sm:max-w-[260px] md:max-w-none object-contain object-left"
+              width={LOGO_INTRINSIC_WIDTH}
+              height={LOGO_INTRINSIC_HEIGHT}
+              decoding="async"
             />
           </Link>
 
