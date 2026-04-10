@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -52,8 +53,8 @@ const AtuacaoLayout = ({ title, subtitle, children }: Props) => {
               className="bg-green-600 hover:bg-green-700 text-white font-sans"
             >
               <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Falar pelo WhatsApp
+                <WhatsAppIcon className="h-5 w-5 mr-2" />
+                Fale com os Advogados
               </a>
             </Button>
           </div>

@@ -1,4 +1,5 @@
-import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 const Footer = () => {
   return (
@@ -24,7 +25,7 @@ const Footer = () => {
                 (34) 3333-3333
               </a>
               <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-secondary transition-colors">
-                <MessageCircle className="h-4 w-4 shrink-0" />
+                <WhatsAppIcon className="h-4 w-4 shrink-0" />
                 (34) 99999-9999
               </a>
               <a href="mailto:contato@vcg.adv.br" className="flex items-center gap-3 hover:text-secondary transition-colors">

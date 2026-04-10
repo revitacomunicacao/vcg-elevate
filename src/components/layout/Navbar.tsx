@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
-import logoIcon from "@/assets/logo_icone.webp";
+import logoFull from "@/assets/logo-vinicius-carneiro-goncalves-advocacia.jpg.jpeg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Início", action: () => scrollToSection("hero") },
     { label: "Quem Somos", action: () => scrollToSection("quem-somos") },
-    { label: "Equipe", action: () => scrollToSection("equipe") },
+    { label: "Corpo Jurídico", action: () => scrollToSection("equipe") },
     { label: "Atuação", action: () => scrollToSection("atuacao") },
     { label: "Contato", action: () => scrollToSection("contato") },
   ];
@@ -32,12 +33,12 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoIcon} alt="VCG Advocacia" className="h-10 w-auto" />
-            <div className="flex flex-col">
-              <span className="font-serif text-xl font-bold text-primary tracking-tight leading-tight">VCG</span>
-              <span className="text-[10px] text-muted-foreground font-sans tracking-widest uppercase">Advocacia</span>
-            </div>
+          <Link to="/" className="flex items-center shrink-0">
+            <img
+              src={logoFull}
+              alt="Advocacia Vinicius Carneiro Gonçalves"
+              className="h-9 sm:h-10 md:h-12 w-auto max-w-[min(100%,220px)] sm:max-w-[260px] md:max-w-none object-contain object-left"
+            />
           </Link>
 
           {/* Desktop */}
@@ -57,8 +58,8 @@ const Navbar = () => {
               size="sm"
             >
               <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp
+                <WhatsAppIcon className="h-4 w-4" />
+                Fale com os Advogados
               </a>
             </Button>
           </div>
@@ -90,8 +91,8 @@ const Navbar = () => {
               className="w-full bg-green-600 hover:bg-green-700 text-white gap-2"
             >
               <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp
+                <WhatsAppIcon className="h-4 w-4" />
+                Fale com os Advogados
               </a>
             </Button>
           </div>

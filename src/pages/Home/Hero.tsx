@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero_bg.jpg";
@@ -55,17 +55,17 @@ const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-sans text-base px-8"
+              className="bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground font-sans text-base px-8"
             >
               <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                Fale Conosco
+                <WhatsAppIcon className="h-5 w-5 mr-2" />
+                Fale com os Advogados
               </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-sans text-base px-8"
+              className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 font-sans text-base px-8"
               onClick={() => document.getElementById("quem-somos")?.scrollIntoView({ behavior: "smooth" })}
             >
               Conheça o Escritório

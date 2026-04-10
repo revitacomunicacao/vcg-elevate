@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import drVinicius from "@/assets/dr_vinicius.webp";
-import draIsabelle from "@/assets/dra_isabelle.webp";
+import drVinicius from "@/assets/dr_vinicius.png";
+import draIsabelle from "@/assets/dra_isabelle.png";
 
 const team = [
   {
@@ -31,7 +31,7 @@ const NossaEquipe = () => {
           className="text-center mb-16"
         >
           <span className="text-secondary font-sans text-sm tracking-[0.2em] uppercase">Profissionais</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Nossa Equipe</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Corpo Jurídico</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
@@ -44,16 +44,15 @@ const NossaEquipe = () => {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-xl transition-shadow group"
             >
-              <div className="relative h-72 overflow-hidden">
+              <div className="h-72 overflow-hidden">
                 <img
                   src={member.photo}
                   alt={member.name}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
               </div>
-              <div className="p-6 text-center -mt-8 relative">
+              <div className="p-6 text-center">
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-1">{member.name}</h3>
                 <p className="text-secondary font-sans text-sm font-medium mb-1">{member.role}</p>
                 {member.oab && (
