@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import drVinicius from "@/assets/dr_vinicius.webp";
-import draIsabelle from "@/assets/dra_isabelle.webp";
+import drVinicius from "@/assets/DrVinicius.jpeg";
+import draIsabelle from "@/assets/DraIsabelle.jpeg";
 
 const team = [
   {
@@ -45,13 +45,13 @@ const NossaEquipe = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-xl transition-shadow group"
+              className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-xl transition-shadow"
             >
-              <div className="h-72 overflow-hidden">
+              <div className="flex items-center justify-center bg-muted/50 p-4">
                 <img
                   src={member.photo}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="max-w-full max-h-[min(70vh,28rem)] w-auto h-auto object-contain"
                   loading="lazy"
                 />
               </div>

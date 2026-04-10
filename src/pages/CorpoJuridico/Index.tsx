@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { NAVBAR_OFFSET_PX } from "@/lib/logo";
-import drVinicius from "@/assets/dr_vinicius.webp";
-import draIsabelle from "@/assets/dra_isabelle.webp";
+import drVinicius from "@/assets/DrVinicius.jpeg";
+import draIsabelle from "@/assets/DraIsabelle.jpeg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -46,7 +46,7 @@ const CorpoJuridico = () => {
               <img
                 src={drVinicius}
                 alt="Dr. Vinicius Carneiro Gonçalves"
-                className="rounded-xl shadow-lg w-full object-cover object-top h-80"
+                className="rounded-xl shadow-lg w-full h-auto object-contain"
                 loading="lazy"
               />
             </motion.div>
@@ -115,7 +115,7 @@ const CorpoJuridico = () => {
               <img
                 src={draIsabelle}
                 alt="Dra. Isabelle Marlene Simões Araujo"
-                className="rounded-xl shadow-lg w-full object-cover object-top h-80"
+                className="rounded-xl shadow-lg w-full h-auto object-contain"
                 loading="lazy"
               />
             </motion.div>
