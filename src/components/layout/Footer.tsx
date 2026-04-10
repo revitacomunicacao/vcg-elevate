@@ -30,17 +30,17 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Contato</h4>
             <div className="space-y-3 text-sm text-primary-foreground/80">
-              <a href="https://wa.me/5534998850315" className="flex items-center gap-3 hover:text-secondary transition-colors">
+              <a href="tel:+553433227473" className="flex items-center gap-3 hover:text-secondary transition-colors">
                 <Phone className="h-4 w-4 shrink-0" />
-                (34) 99885-0315
+                (34) 3322-7473
               </a>
               <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-secondary transition-colors">
                 <WhatsAppIcon className="h-4 w-4 shrink-0" />
                 (34) 99885-0315
               </a>
-              <a href="mailto:contato@vcg.adv.br" className="flex items-center gap-3 hover:text-secondary transition-colors">
+              <a href="mailto:vinicius.adv@uol.com.br" className="flex items-center gap-3 hover:text-secondary transition-colors">
                 <Mail className="h-4 w-4 shrink-0" />
-                contato@vcg.adv.br
+                vinicius.adv@uol.com.br
               </a>
             </div>
           </div>
@@ -51,8 +51,8 @@ const Footer = () => {
             <div className="flex items-start gap-3 text-sm text-primary-foreground/80">
               <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
               <p>
-                Rua Exemplo, 123 — Centro<br />
-                Uberaba/MG — CEP 38010-000
+                Avenida Maranhão, 1.373 — Universitário<br />
+                CEP 38.050-470 — Uberaba/MG
               </p>
             </div>
           </div>
