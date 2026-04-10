@@ -60,7 +60,7 @@ const Navbar = () => {
               className="bg-green-600 hover:bg-green-700 text-white gap-2"
               size="sm"
             >
-              <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-4 w-4" />
                 Fale com os Advogados
               </a>
@@ -93,7 +93,7 @@ const Navbar = () => {
               asChild
               className="w-full bg-green-600 hover:bg-green-700 text-white gap-2"
             >
-              <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-4 w-4" />
                 Fale com os Advogados
               </a>

@@ -30,13 +30,13 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Contato</h4>
             <div className="space-y-3 text-sm text-primary-foreground/80">
-              <a href="tel:+553433333333" className="flex items-center gap-3 hover:text-secondary transition-colors">
+              <a href="https://wa.me/5534998850315" className="flex items-center gap-3 hover:text-secondary transition-colors">
                 <Phone className="h-4 w-4 shrink-0" />
-                (34) 3333-3333
+                (34) 99885-0315
               </a>
-              <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-secondary transition-colors">
+              <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-secondary transition-colors">
                 <WhatsAppIcon className="h-4 w-4 shrink-0" />
-                (34) 99999-9999
+                (34) 99885-0315
               </a>
               <a href="mailto:contato@vcg.adv.br" className="flex items-center gap-3 hover:text-secondary transition-colors">
                 <Mail className="h-4 w-4 shrink-0" />
