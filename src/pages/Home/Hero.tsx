@@ -57,7 +57,7 @@ const Hero = () => {
               size="lg"
               className="bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground font-sans text-base px-8"
             >
-              <a href="https://wa.me/5534999999999" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-5 w-5 mr-2" />
                 Fale com os Advogados
               </a>

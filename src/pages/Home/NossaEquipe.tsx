@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import drVinicius from "@/assets/dr_vinicius.png";
-import draIsabelle from "@/assets/dra_isabelle.png";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import drVinicius from "@/assets/dr_vinicius.webp";
+import draIsabelle from "@/assets/dra_isabelle.webp";
 
 const team = [
   {
@@ -63,6 +66,20 @@ const NossaEquipe = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <Button asChild variant="ghost" className="text-primary hover:text-primary/80 font-sans text-base">
+            <Link to="/corpo-juridico">
+              Ver currículo completo da equipe <ArrowRight className="h-4 w-4 ml-2" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
