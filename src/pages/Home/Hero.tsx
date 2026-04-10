@@ -1,22 +1,17 @@
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero_bg.jpg";
+import heroBg from "@/assets/vcg-fullbanner.jpg.jpeg";
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-primary/85" />
-      </div>
+    <section id="hero" className="relative w-full min-h-screen bg-primary overflow-hidden">
+      {/* Largura total; altura da seção acompanha a proporção da foto — imagem inteira, sem crop nem barras laterais */}
+      <img src={heroBg} alt="" className="w-full h-auto block select-none pointer-events-none" />
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
-        <div className="max-w-3xl mx-auto">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -71,10 +66,11 @@ const Hero = () => {
               Conheça o Escritório
             </Button>
           </motion.div>
+          </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent pointer-events-none" />
     </section>
   );
 };
