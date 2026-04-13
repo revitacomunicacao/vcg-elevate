@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import drVinicius from "@/assets/DrVinicius.jpeg";
 import draIsabelle from "@/assets/DraIsabelle.jpeg";
@@ -12,13 +11,15 @@ const team = [
     oab: "OAB/MG nº 5.217",
     desc: "Advogado com mais de 24 anos de experiência, especialista em Direito Civil, Família e Sucessões.",
     photo: drVinicius,
+    anchorId: "vinicius-carneiro-goncalves",
   },
   {
     name: "Isabelle Araujo",
     role: "Advogada",
-    oab: "",
+    oab: "OAB/MG nº",
     desc: "Atuação focada em Direito de Família e Sucessões, com atendimento humanizado e dedicado.",
     photo: draIsabelle,
+    anchorId: "isabelle-marlene-simoes-araujo",
   },
 ];
 
@@ -62,24 +63,19 @@ const NossaEquipe = () => {
                   <p className="text-muted-foreground text-xs mb-3">{member.oab}</p>
                 )}
                 <p className="text-sm text-muted-foreground font-sans leading-relaxed">{member.desc}</p>
+                <div className="mt-6">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-secondary text-secondary hover:bg-secondary hover:text-white font-sans"
+                  >
+                    <Link to={`/corpo-juridico#${member.anchorId}`}>Conheça mais</Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
-        >
-          <Button asChild variant="ghost" className="text-primary hover:text-primary/80 font-sans text-base">
-            <Link to="/corpo-juridico">
-              Ver currículo completo da equipe <ArrowRight className="h-4 w-4 ml-2" />
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

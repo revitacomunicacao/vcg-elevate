@@ -54,7 +54,11 @@ const Atuacao = () => {
               </div>
               <h3 className="font-serif text-xl font-semibold text-foreground mb-3">{area.title}</h3>
               <p className="text-sm text-muted-foreground font-sans leading-relaxed mb-6">{area.desc}</p>
-              <Button asChild variant="ghost" className="text-primary hover:text-primary/80 p-0 h-auto font-sans">
+              <Button
+                asChild
+                variant="ghost"
+                className="text-primary hover:text-white hover:bg-primary px-3 py-2 h-auto font-sans rounded-md transition-colors"
+              >
                 <Link to={area.link}>
                   Saiba mais <ArrowRight className="h-4 w-4 ml-1" />
                 </Link>

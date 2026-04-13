@@ -48,9 +48,6 @@ const QuemSomos = () => {
             transition={{ duration: 0.7 }}
             className="relative lg:sticky lg:top-28 space-y-4"
           >
-            <div className="absolute -inset-4 bg-primary/5 rounded-2xl -z-10" />
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/20 rounded-xl -z-10 hidden sm:block" />
-
             <div className="relative rounded-xl overflow-hidden border border-border shadow-lg bg-muted/30">
               <img
                 key={selectedIndex}

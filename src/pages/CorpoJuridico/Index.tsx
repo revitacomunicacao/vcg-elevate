@@ -1,8 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { NAVBAR_OFFSET_PX } from "@/lib/logo";
@@ -17,6 +18,23 @@ const fadeUp = {
 };
 
 const CorpoJuridico = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const id = location.hash?.replace("#", "");
+    if (!id) return;
+
+    // Aguarda o render (e imagens) para garantir que o elemento exista no DOM.
+    const t = window.setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET_PX - 16;
+      window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+    }, 0);
+
+    return () => window.clearTimeout(t);
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -39,7 +57,7 @@ const CorpoJuridico = () => {
       </section>
 
       {/* Vinicius */}
-      <section className="py-20 bg-background">
+      <section id="vinicius-carneiro-goncalves" className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start">
             <motion.div {...fadeUp}>
@@ -108,7 +126,7 @@ const CorpoJuridico = () => {
       </section>
 
       {/* Isabelle */}
-      <section className="py-20 bg-muted">
+      <section id="isabelle-marlene-simoes-araujo" className="py-20 bg-muted">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
           <div className="grid md:grid-cols-[280px_1fr] gap-12 items-start">
             <motion.div {...fadeUp}>
@@ -190,7 +208,7 @@ const CorpoJuridico = () => {
             <Button
               asChild
               size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white font-sans"
+              className="bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground font-sans"
             >
               <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-5 w-5 mr-2" />

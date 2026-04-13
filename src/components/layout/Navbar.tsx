@@ -40,6 +40,7 @@ const Navbar = () => {
               alt="Advocacia Vinicius Carneiro Gonçalves"
               width={LOGO_INTRINSIC_WIDTH}
               height={LOGO_INTRINSIC_HEIGHT}
+              className="h-auto w-auto max-w-[200px] sm:max-w-[240px] md:max-w-none"
               decoding="async"
             />
           </Link>
@@ -57,7 +58,7 @@ const Navbar = () => {
             ))}
             <Button
               asChild
-              className="bg-green-600 hover:bg-green-700 text-white gap-2"
+              className="bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground gap-2"
               size="sm"
             >
               <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
@@ -91,7 +92,7 @@ const Navbar = () => {
             ))}
             <Button
               asChild
-              className="w-full bg-green-600 hover:bg-green-700 text-white gap-2"
+              className="w-full bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground gap-2"
             >
               <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-4 w-4" />

@@ -16,6 +16,7 @@ const Footer = () => {
                 alt="Advocacia Vinicius Carneiro Gonçalves"
                 width={LOGO_INTRINSIC_WIDTH}
                 height={LOGO_INTRINSIC_HEIGHT}
+                className="h-auto w-auto max-w-[220px] sm:max-w-[260px]"
                 decoding="async"
               />
             </div>
