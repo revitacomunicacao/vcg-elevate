@@ -2,7 +2,7 @@ import AtuacaoLayout from "./AtuacaoLayout";
 
 const Familia = () => (
   <AtuacaoLayout
-    title="Direito de Família"
+    title="Direito das Famílias"
     subtitle="Acolhimento e orientação jurídica para questões familiares."
   >
     <p>

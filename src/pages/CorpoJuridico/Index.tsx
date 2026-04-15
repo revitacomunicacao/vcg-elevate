@@ -80,7 +80,7 @@ const CorpoJuridico = () => {
                 <p>Pós-graduado (especialização) em Docência Universitária pela Universidade de Uberaba – Uberaba/MG</p>
                 <p>Mestre em Educação pela Universidade de Uberaba – Uberaba/MG</p>
                 <p>Professor universitário</p>
-                <p>Associado ao IBDFAM – Instituto Brasileiro de Direito de Família</p>
+                <p>Membro da Comissão do IBDFAM – Instituto Brasileiro de Direito de Família</p>
                 <p>Exerceu o cargo de 1º Secretário do Núcleo de Uberaba/MG do IBDFAM - Instituto Brasileiro de Direito de Família, de 2010 a 2013</p>
                 <p>Associado à AASP - Associação dos Advogados de São Paulo</p>
                 <p>Associado ao IBDD - Instituto Brasileiro de Direito Desportivo</p>
@@ -143,7 +143,7 @@ const CorpoJuridico = () => {
               <p className="text-secondary font-sans font-medium mb-6">Advogada</p>
 
               <div className="space-y-2 text-sm text-muted-foreground font-sans leading-relaxed">
-                <p><strong className="text-foreground">Advogada</strong>, inscrita na OAB/MG sob o nº 204.163</p>
+                <p><strong className="text-foreground">Advogada</strong>, inscrita na OAB sob o nº 204.163/MG</p>
                 <p>Bacharel em Direito pela Universidade de Uberaba - Uberaba/MG</p>
                 <p>Pós-graduada em Direito do Trabalho e Previdenciário pela PUC Minas - Belo Horizonte/MG</p>
                 <p>Pós-graduanda em Direito Processual Civil pela Faculdade Legale - São Paulo/SP</p>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Gavel, Briefcase, Monitor } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import { Button } from "@/components/ui/button";
 
 /** Conteúdo alinhado a https://vcg.adv.br/serviços */
 const acoesItems = [
@@ -62,7 +64,7 @@ const Servicos = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="text-center text-muted-foreground font-sans max-w-3xl mx-auto mb-16 leading-relaxed"
         >
-          Atuamos há mais de 25 anos em diversas áreas do Direito, aliando o conhecimento à experiência para prestar um
+          Atuamos há mais de 26 anos em diversas áreas do Direito, aliando o conhecimento à experiência para prestar um
           serviço de excelência aos nossos clientes.
         </motion.p>
 
@@ -118,6 +120,16 @@ const Servicos = () => {
             </span>
             <span className="block">Conte-nos e faremos o melhor por você.</span>
           </p>
+          <Button
+            asChild
+            size="lg"
+            className="mt-8 bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground font-sans text-base px-8"
+          >
+            <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon className="h-5 w-5 mr-2" />
+              Agende sua consulta jurídica
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>

@@ -120,6 +120,11 @@ const QuemSomos = () => {
                 individualidade dos clientes, sejam eles pessoas físicas ou jurídicas.
               </p>
               <p>
+                A atuação concentra-se no Direito das Famílias, Sucessões, Empresarial e Civil, com especial enfoque em
+                demandas que exigem abordagem técnica apurada, sensibilidade jurídica e compreensão aprofundada das dinâmicas
+                pessoais e patrimoniais envolvidas.
+              </p>
+              <p>
                 O nosso escritório está localizado no bairro Universitário, na cidade de Uberaba/MG, a 200 metros do Fórum
                 da Justiça Estadual.
               </p>

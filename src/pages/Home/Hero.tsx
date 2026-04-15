@@ -1,7 +1,7 @@
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/vcg-fullbanner.jpg.jpeg";
+import heroBg from "@/assets/vcg-fullbanner2.jpg.jpeg";
 import { NAVBAR_OFFSET_PX } from "@/lib/logo";
 
 const Hero = () => {
@@ -46,8 +46,9 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-lg md:text-xl text-primary-foreground/80 font-sans leading-relaxed mb-5 md:mb-10 max-w-2xl mx-auto"
           >
-            Tradição e excelência em Direito Civil, Família e Sucessões.
-            Mais de 24 anos defendendo seus direitos em Uberaba/MG.
+            Tradição e excelência em Direito Civil, Família e Sucessões e Empresarial.
+            <br />
+            Mais de 26 anos defendendo seus direitos em Uberaba/MG e em todo o Brasil.
           </motion.p>
 
           <motion.div

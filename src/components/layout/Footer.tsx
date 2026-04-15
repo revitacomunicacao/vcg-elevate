@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import logoFooter from "@/assets/logo-vinicius-carneiro-goncalves-advocacia-footer.png";
 import { LOGO_INTRINSIC_HEIGHT, LOGO_INTRINSIC_WIDTH } from "@/lib/logo";
@@ -43,19 +43,33 @@ const Footer = () => {
                 <Mail className="h-4 w-4 shrink-0" />
                 vinicius.adv@uol.com.br
               </a>
+              <a
+                href="https://www.instagram.com/advocacia.viniciuscarneiro/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 hover:text-secondary transition-colors"
+              >
+                <Instagram className="h-4 w-4 shrink-0" />
+                @advocacia.viniciuscarneiro
+              </a>
             </div>
           </div>
 
           {/* Address */}
           <div>
             <h4 className="font-serif text-lg font-semibold mb-4">Endereço</h4>
-            <div className="flex items-start gap-3 text-sm text-primary-foreground/80">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Avenida%20Maranh%C3%A3o%2C%201373%20-%20Universit%C3%A1rio%2C%20Uberaba%20-%20MG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 text-sm text-primary-foreground/80 hover:text-secondary transition-colors"
+            >
               <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
-              <p>
+              <span>
                 Avenida Maranhão, 1.373 — Universitário<br />
                 CEP 38.050-470 — Uberaba/MG
-              </p>
-            </div>
+              </span>
+            </a>
           </div>
         </div>
 

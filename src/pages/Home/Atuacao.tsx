@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Landmark, Heart, FileText, ArrowRight } from "lucide-react";
+import { Landmark, Heart, FileText, BriefcaseBusiness, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -12,7 +12,7 @@ const areas = [
   },
   {
     icon: Heart,
-    title: "Direito de Família",
+    title: "Direito das Famílias",
     desc: "Divórcio, guarda de filhos, pensão alimentícia, união estável, reconhecimento de paternidade e adoção.",
     link: "/atuacao/familia",
   },
@@ -21,6 +21,12 @@ const areas = [
     title: "Direito das Sucessões",
     desc: "Inventário judicial e extrajudicial, testamentos, partilha de bens, planejamento sucessório e herança.",
     link: "/atuacao/sucessoes",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Direito Empresarial",
+    desc: "Assessoria preventiva e contenciosa para empresas: contratos, cobranças, responsabilidade civil e apoio jurídico estratégico.",
+    link: "/atuacao/empresarial",
   },
 ];
 
@@ -39,7 +45,7 @@ const Atuacao = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3">Áreas de Atuação</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {areas.map((area, i) => (
             <motion.div
               key={area.title}
