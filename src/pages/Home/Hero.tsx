@@ -1,10 +1,22 @@
+import { useEffect, useState } from "react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/vcg-fullbanner2.jpg.jpeg";
+import heroBgEscritorio from "@/assets/fullbanner-vcg-escritorio.jpg.jpeg";
 import { NAVBAR_OFFSET_PX } from "@/lib/logo";
 
 const Hero = () => {
+  const slides = [heroBgEscritorio, heroBg];
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActiveIndex((i) => (i + 1) % slides.length);
+    }, 7000);
+    return () => window.clearInterval(id);
+  }, [slides.length]);
+
   return (
     <section
       id="hero"
@@ -16,7 +28,15 @@ const Hero = () => {
         md+: texto sobre a imagem, alinhado na base.
         marginTop mobile = NAVBAR_OFFSET_PX; em md+, md:!mt-12 sobrescreve o inline.
       */}
-      <img src={heroBg} alt="" className="w-full h-auto block select-none pointer-events-none" />
+      <motion.img
+        key={activeIndex}
+        src={slides[activeIndex]}
+        alt=""
+        className="w-full h-auto block select-none pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      />
 
       <div className="relative z-10 w-full md:absolute md:inset-0 md:flex md:items-end md:justify-center px-4 pb-4 pt-3 sm:pb-8 sm:pt-4 md:px-0 md:pb-12 md:pt-0 lg:pb-14">
         <div className="w-full container mx-auto px-0 md:px-4 lg:px-8 text-center">

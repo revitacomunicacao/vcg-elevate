@@ -65,43 +65,44 @@ const Servicos = () => {
           className="text-center text-muted-foreground font-sans max-w-3xl mx-auto mb-16 leading-relaxed"
         >
           Atuamos há mais de 26 anos em diversas áreas do Direito, aliando o conhecimento à experiência para prestar um
-          serviço de excelência aos nossos clientes.
+          serviço de excelência aos nossos clientes.<br />
+          A atuação concentra-se no Direito das Famílias, Sucessões, Empresarial e Civil, com especial enfoque em demandas que exigem abordagem técnica apurada, sensibilidade jurídica e compreensão aprofundada das dinâmicas pessoais e patrimoniais envolvidas.
         </motion.p>
 
         <div className="max-w-4xl mx-auto space-y-16">
           {sections.map((block, i) => {
             const Icon = block.icon;
             return (
-            <motion.article
-              key={block.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="bg-card rounded-lg border border-border p-6 md:p-8 shadow-sm"
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 shrink-0">
-                  <Icon className="h-5 w-5 text-primary" aria-hidden />
+              <motion.article
+                key={block.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="bg-card rounded-lg border border-border p-6 md:p-8 shadow-sm"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 shrink-0">
+                    <Icon className="h-5 w-5 text-primary" aria-hidden />
+                  </div>
+                  <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground pt-1.5">{block.title}</h3>
                 </div>
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground pt-1.5">{block.title}</h3>
-              </div>
 
-              {block.type === "list" ? (
-                <ul className="space-y-3 pl-0 list-none">
-                  {block.items.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm md:text-[15px] text-muted-foreground font-sans leading-relaxed">
-                      <span className="text-secondary shrink-0 select-none" aria-hidden>
-                        •
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm md:text-[15px] text-muted-foreground font-sans leading-relaxed pl-1">{block.body}</p>
-              )}
-            </motion.article>
+                {block.type === "list" ? (
+                  <ul className="space-y-3 pl-0 list-none">
+                    {block.items.map((item) => (
+                      <li key={item} className="flex gap-3 text-sm md:text-[15px] text-muted-foreground font-sans leading-relaxed">
+                        <span className="text-secondary shrink-0 select-none" aria-hidden>
+                          •
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm md:text-[15px] text-muted-foreground font-sans leading-relaxed pl-1">{block.body}</p>
+                )}
+              </motion.article>
             );
           })}
         </div>

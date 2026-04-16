@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Scale, Shield, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import galeria01 from "@/assets/galeria (1).jpeg";
+import galeria02 from "@/assets/galeria (2).jpeg";
+import galeria03 from "@/assets/galeria (3).jpeg";
+import galeria04 from "@/assets/galeria (4).jpeg";
+import galeria05 from "@/assets/galeria (5).jpeg";
 import vcgFoto01 from "@/assets/vcg-foto01.jpg.jpeg";
 import vcgFoto02 from "@/assets/vcg-foto02.jpg.jpeg";
 import vcgFoto03 from "@/assets/vcg-foto03.jpg.jpeg";
@@ -21,6 +26,11 @@ const values = [
 ];
 
 const galleryImages: { src: string; alt: string }[] = [
+  { src: galeria01, alt: "Galeria do escritório VCG Advocacia (1)" },
+  { src: galeria02, alt: "Galeria do escritório VCG Advocacia (2)" },
+  { src: galeria03, alt: "Galeria do escritório VCG Advocacia (3)" },
+  { src: galeria04, alt: "Galeria do escritório VCG Advocacia (4)" },
+  { src: galeria05, alt: "Galeria do escritório VCG Advocacia (5)" },
   { src: vcgFoto01, alt: "Recepção do escritório VCG Advocacia" },
   { src: vcgFoto02, alt: "Ambiente e identidade visual — VCG Advocacia" },
   { src: vcgFoto03, alt: "Obra decorativa no escritório VCG Advocacia" },
