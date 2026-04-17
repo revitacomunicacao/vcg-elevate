@@ -45,7 +45,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-block text-secondary font-sans text-sm tracking-[0.3em] uppercase mb-3 md:mb-6"
+            className="inline-block text-white font-sans text-sm tracking-[0.3em] uppercase mb-3 md:mb-6"
           >
             Escritório de Advocacia
           </motion.span>
