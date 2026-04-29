@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
-import { Scale, Shield, Award } from "lucide-react";
 import { motion } from "framer-motion";
-import galeria01 from "@/assets/galeria (1).jpeg";
-import galeria02 from "@/assets/galeria (2).jpeg";
-import galeria03 from "@/assets/galeria (3).jpeg";
-import galeria04 from "@/assets/galeria (4).jpeg";
-import galeria05 from "@/assets/galeria (5).jpeg";
-import vcgFoto01 from "@/assets/vcg-foto01.jpg.jpeg";
-import vcgFoto02 from "@/assets/vcg-foto02.jpg.jpeg";
-import vcgFoto03 from "@/assets/vcg-foto03.jpg.jpeg";
 import {
   Carousel,
   CarouselContent,
@@ -18,27 +9,24 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+import { getRegistryIcon } from "@/lib/iconRegistry";
 
-const values = [
-  { icon: Scale, title: "Ética", desc: "Atuação pautada nos mais altos padrões éticos e de integridade profissional." },
-  { icon: Shield, title: "Compromisso", desc: "Dedicação total na defesa dos interesses de cada cliente, com atenção personalizada." },
-  { icon: Award, title: "Excelência", desc: "Busca contínua por resultados excepcionais e atualização jurídica permanente." },
-];
+type QuemSomosContent = {
+  sectionLabel: string;
+  heading: string;
+  description: string;
+  gallery: string[];
+  values: Array<{ iconKey: string; title: string; description: string }>;
+};
 
-const galleryImages: { src: string; alt: string }[] = [
-  { src: galeria01, alt: "Galeria do escritório VCG Advocacia (1)" },
-  { src: galeria02, alt: "Galeria do escritório VCG Advocacia (2)" },
-  { src: galeria03, alt: "Galeria do escritório VCG Advocacia (3)" },
-  { src: galeria04, alt: "Galeria do escritório VCG Advocacia (4)" },
-  { src: galeria05, alt: "Galeria do escritório VCG Advocacia (5)" },
-  { src: vcgFoto01, alt: "Recepção do escritório VCG Advocacia" },
-  { src: vcgFoto02, alt: "Ambiente e identidade visual — VCG Advocacia" },
-  { src: vcgFoto03, alt: "Obra decorativa no escritório VCG Advocacia" },
-];
-
-const QuemSomos = () => {
+const QuemSomos = ({ content }: { content: QuemSomosContent }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [thumbApi, setThumbApi] = useState<CarouselApi>();
+
+  const galleryImages: { src: string; alt: string }[] = content.gallery.map((src, i) => ({
+    src,
+    alt: `Galeria do escritório VCG Advocacia (${i + 1})`,
+  }));
 
   const selected = galleryImages[selectedIndex] ?? galleryImages[0];
 
@@ -110,49 +98,27 @@ const QuemSomos = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <span className="text-secondary font-sans text-sm tracking-[0.2em] uppercase">Sobre nós</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">Bem-vindo ao nosso escritório virtual!</h2>
+            <span className="text-secondary font-sans text-sm tracking-[0.2em] uppercase">{content.sectionLabel}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-3 mb-6">{content.heading}</h2>
             <div className="space-y-4 text-muted-foreground font-sans leading-relaxed">
-              <p>
-                O escritório foi fundado no ano de 2000 pelo advogado Vinicius Carneiro Gonçalves que, desde então, tem como
-                meta precípua a prestação de serviços de excelência.
-              </p>
-              <p>
-                Adotamos o formato europeu denominado &quot;escritório boutique&quot;, também utilizado nos grandes centros do
-                Brasil.
-              </p>
-              <p>
-                Esse novo modelo tem como característica a atuação de sua equipe em determinados ramos do Direito, permitindo
-                que seus integrantes sejam altamente especializados, atualizados e experientes no que fazem.
-              </p>
-              <p>
-                Esse novo conceito é marcado também por um atendimento profissional e personalizado, o que valoriza a
-                individualidade dos clientes, sejam eles pessoas físicas ou jurídicas.
-              </p>
-              <p>
-                A atuação concentra-se no Direito das Famílias, Sucessões, Empresarial e Civil, com especial enfoque em
-                demandas que exigem abordagem técnica apurada, sensibilidade jurídica e compreensão aprofundada das dinâmicas
-                pessoais e patrimoniais envolvidas.
-              </p>
-              <p>
-                O nosso escritório está localizado no bairro Universitário, na cidade de Uberaba/MG, a 200 metros do Fórum
-                da Justiça Estadual.
-              </p>
-              <p>Dedicação, honestidade, ética e compromisso são alguns de nossos principais valores.</p>
-              <p>
-                O escritório está registrado na Ordem dos Advogados do Brasil - Seção Minas Gerais, sob o nº 5217.
-              </p>
+              {content.description
+                .split(/\r?\n\r?\n/)
+                .map((p) => p.trim())
+                .filter(Boolean)
+                .map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
             </div>
           </motion.div>
         </div>
 
         {/* Values cards */}
         <div className="grid md:grid-cols-3 gap-8">
-          {values.map((v, i) => {
-            const Icon = v.icon;
+          {content.values.map((v, i) => {
+            const Icon = getRegistryIcon(v.iconKey);
             return (
               <motion.div
-                key={v.title}
+                key={`${v.title}-${i}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -160,10 +126,10 @@ const QuemSomos = () => {
                 className="text-center p-8 rounded-lg border border-border bg-card hover:shadow-lg transition-shadow group"
               >
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-5">
-                  <Icon className="h-6 w-6 text-primary" />
+                  {Icon ? <Icon className="h-6 w-6 text-primary" /> : null}
                 </div>
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-3">{v.title}</h3>
-                <p className="text-sm text-muted-foreground font-sans leading-relaxed">{v.desc}</p>
+                <p className="text-sm text-muted-foreground font-sans leading-relaxed">{v.description}</p>
               </motion.div>
             );
           })}

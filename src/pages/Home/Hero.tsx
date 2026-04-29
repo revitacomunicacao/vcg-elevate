@@ -6,9 +6,33 @@ import heroBg from "@/assets/vcg-fullbanner2.jpg.jpeg";
 import heroBgEscritorio from "@/assets/fullbanner-vcg-escritorio.jpg.jpeg";
 import { NAVBAR_OFFSET_PX } from "@/lib/logo";
 
-const Hero = () => {
+type HeroContent = {
+  title: string;
+  description: string;
+  primaryCta: { texto: string; link: string };
+  secondaryCta: { texto: string; link: string };
+};
+
+function renderMultilineText(text: string) {
+  const lines = text.split(/\r?\n/);
+  return (
+    <>
+      {lines.map((line, i) => (
+        <span key={i}>
+          {line}
+          {i < lines.length - 1 ? <br /> : null}
+        </span>
+      ))}
+    </>
+  );
+}
+
+const Hero = ({ content }: { content: HeroContent }) => {
   const slides = [heroBgEscritorio, heroBg];
   const [activeIndex, setActiveIndex] = useState(0);
+  const titleParts = content.title.trim().split(/\s+/);
+  const titleLast = titleParts.length > 1 ? titleParts[titleParts.length - 1] : "";
+  const titleRest = titleParts.length > 1 ? titleParts.slice(0, -1).join(" ") : content.title;
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -56,8 +80,7 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-3 md:mb-6"
           >
-            Vinicius Carneiro{" "}
-            <span className="text-secondary">Gonçalves</span>
+            {titleRest} {titleLast ? <span className="text-secondary">{titleLast}</span> : null}
           </motion.h1>
 
           <motion.p
@@ -66,9 +89,7 @@ const Hero = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-lg md:text-xl text-primary-foreground/80 font-sans leading-relaxed mb-5 md:mb-10 max-w-2xl mx-auto"
           >
-            Tradição e excelência em Direito Civil, Família e Sucessões e Empresarial.
-            <br />
-            Mais de 26 anos defendendo seus direitos em Uberaba/MG e em todo o Brasil.
+            {renderMultilineText(content.description)}
           </motion.p>
 
           <motion.div
@@ -82,9 +103,9 @@ const Hero = () => {
               size="lg"
               className="bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground font-sans text-base px-8"
             >
-              <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
+              <a href={content.primaryCta.link} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-5 w-5 mr-2" />
-                Fale com os Advogados
+                {content.primaryCta.texto}
               </a>
             </Button>
             <Button
@@ -93,7 +114,7 @@ const Hero = () => {
               className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20 font-sans text-base px-8"
               onClick={() => document.getElementById("quem-somos")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Conheça o Escritório
+              {content.secondaryCta.texto}
             </Button>
           </motion.div>
           </div>

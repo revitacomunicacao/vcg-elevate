@@ -1,12 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const stats = [
-  { value: 26, suffix: "+", label: "Anos de Atuação" },
-  { value: 3500, suffix: "+", label: "Clientes Atendidos" },
-  { value: 98, suffix: "%", label: "Satisfação dos Clientes" },
-];
-
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
@@ -51,7 +45,15 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   );
 };
 
-const ProvaSocial = () => {
+type ProvaSocialContent = {
+  title: string;
+  description: string;
+  stats: Array<{ target: number; suffix: string; label: string }>;
+};
+
+type Props = { content: ProvaSocialContent };
+
+const ProvaSocial = ({ content }: Props) => {
   return (
     <section className="py-24 bg-primary relative overflow-hidden">
       {/* Decorative pattern */}
@@ -70,15 +72,15 @@ const ProvaSocial = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground">
-            Números que Falam por Nós
+            {content.title}
           </h2>
           <p className="text-primary-foreground/60 font-sans mt-3 max-w-lg mx-auto">
-            Resultados construídos com dedicação, ética e compromisso ao longo de mais de duas décadas.
+            {content.description}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-          {stats.map((stat, i) => (
+          {content.stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -86,7 +88,7 @@ const ProvaSocial = () => {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Counter target={stat.value} suffix={stat.suffix} />
+              <Counter target={stat.target} suffix={stat.suffix} />
               <p className="text-center text-sm text-primary-foreground/70 font-sans mt-2">{stat.label}</p>
             </motion.div>
           ))}

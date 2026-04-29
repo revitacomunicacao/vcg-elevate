@@ -11,9 +11,14 @@ interface Props {
   title: string;
   subtitle: string;
   children: ReactNode;
+  cta: {
+    title: string;
+    description: string;
+    button: { texto: string; link: string };
+  };
 }
 
-const AtuacaoLayout = ({ title, subtitle, children }: Props) => {
+const AtuacaoLayout = ({ title, subtitle, children, cta }: Props) => {
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -43,19 +48,19 @@ const AtuacaoLayout = ({ title, subtitle, children }: Props) => {
           {/* CTA */}
           <div className="mt-16 p-8 bg-muted rounded-lg text-center border border-border">
             <h3 className="font-serif text-2xl font-semibold text-foreground mb-3">
-              Precisa de orientação jurídica?
+              {cta.title}
             </h3>
             <p className="text-muted-foreground font-sans mb-6">
-              Entre em contato e agende uma consulta. Estamos prontos para ajudar.
+              {cta.description}
             </p>
             <Button
               asChild
               size="lg"
               className="bg-secondary/90 hover:bg-secondary/90 text-secondary-foreground font-sans"
             >
-              <a href="https://wa.me/5534998850315" target="_blank" rel="noopener noreferrer">
+              <a href={cta.button.link} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon className="h-5 w-5 mr-2" />
-                Fale com os Advogados
+                {cta.button.texto}
               </a>
             </Button>
           </div>
