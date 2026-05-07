@@ -18,7 +18,7 @@ type NossaEquipeContent = {
 function toInternalLink(url: string) {
   try {
     const u = new URL(url);
-    if (u.hostname === "vcg.adv.br") return `${u.pathname}${u.hash}`;
+    if (u.hostname.endsWith("vcg.adv.br")) return `${u.pathname}${u.hash}`;
   } catch {
     // ignore
   }

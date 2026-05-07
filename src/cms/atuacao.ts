@@ -31,11 +31,13 @@ export type AtuacaoContent = {
 
 type AtuacaoKey = "direito-civil" | "direito-das-familias" | "direito-das-sucessoes" | "direito-empresarial";
 
+import { cmsUrl } from "./base";
+
 const ENDPOINTS: Record<AtuacaoKey, string> = {
-  "direito-civil": "https://vcg.adv.br/admin/api/pages/direito-civil",
-  "direito-das-familias": "https://vcg.adv.br/admin/api/pages/direito-das-familias",
-  "direito-das-sucessoes": "https://vcg.adv.br/admin/api/pages/direito-das-sucessoes",
-  "direito-empresarial": "https://vcg.adv.br/admin/api/pages/direito-empresarial",
+  "direito-civil": cmsUrl("/admin/api/pages/direito-civil"),
+  "direito-das-familias": cmsUrl("/admin/api/pages/direito-das-familias"),
+  "direito-das-sucessoes": cmsUrl("/admin/api/pages/direito-das-sucessoes"),
+  "direito-empresarial": cmsUrl("/admin/api/pages/direito-empresarial"),
 };
 
 function requiredString(value: unknown, fieldId: string): string {

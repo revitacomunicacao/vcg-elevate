@@ -42,7 +42,9 @@ export type CorpoJuridicoContent = {
   };
 };
 
-const ENDPOINT = "https://vcg.adv.br/admin/api/pages/corpo-juridico";
+import { cmsUrl } from "./base";
+
+const ENDPOINT = cmsUrl("/admin/api/pages/corpo-juridico");
 
 function requiredString(value: unknown, fieldId: string): string {
   if (typeof value === "string") return value;

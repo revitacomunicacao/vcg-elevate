@@ -87,7 +87,9 @@ export type HomeContent = {
   };
 };
 
-const HOME_ENDPOINT = "https://vcg.adv.br/admin/api/pages/home";
+import { cmsUrl } from "./base";
+
+const HOME_ENDPOINT = cmsUrl("/admin/api/pages/home");
 
 function toLines(text: string): string[] {
   return text
