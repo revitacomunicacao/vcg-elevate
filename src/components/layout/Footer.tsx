@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { useCookieConsent } from "@/contexts/CookieConsentContext";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import logoFooter from "@/assets/logo-vinicius-carneiro-goncalves-advocacia-footer.png";
 import { LOGO_INTRINSIC_HEIGHT, LOGO_INTRINSIC_WIDTH } from "@/lib/logo";
 
 const Footer = () => {
+  const { openCookieSettings } = useCookieConsent();
+
   return (
     <footer id="contato" className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8 py-16">
@@ -73,8 +77,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-xs text-primary-foreground/50">
-          © {new Date().getFullYear()} VCG Advocacia. Todos os direitos reservados.
+        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-xs text-primary-foreground/50 space-y-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-primary-foreground/70">
+            <Link to="/politica-de-privacidade" className="hover:text-secondary transition-colors underline underline-offset-2">
+              Política de Privacidade
+            </Link>
+            <span className="text-primary-foreground/30 hidden sm:inline" aria-hidden>
+              |
+            </span>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="hover:text-secondary transition-colors underline underline-offset-2 bg-transparent border-0 p-0 cursor-pointer font-sans text-inherit"
+            >
+              Gerenciar cookies
+            </button>
+          </div>
+          <p>© {new Date().getFullYear()} VCG Advocacia. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

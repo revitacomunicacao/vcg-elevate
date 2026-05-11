@@ -5,12 +5,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "@/components/ScrollToTop";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import Home from "./pages/Home/Index";
 import Civil from "./pages/Atuacao/Civil";
 import Familia from "./pages/Atuacao/Familia";
 import Sucessoes from "./pages/Atuacao/Sucessoes";
 import Empresarial from "./pages/Atuacao/Empresarial";
 import CorpoJuridico from "./pages/CorpoJuridico/Index";
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,17 +26,21 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={routerBasename}>
-        <ScrollToTop />
-        <WhatsAppFloatingButton />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/atuacao/civil" element={<Civil />} />
-          <Route path="/atuacao/familia" element={<Familia />} />
-          <Route path="/atuacao/sucessoes" element={<Sucessoes />} />
-          <Route path="/atuacao/empresarial" element={<Empresarial />} />
-          <Route path="/corpo-juridico" element={<CorpoJuridico />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <CookieConsentProvider>
+          <ScrollToTop />
+          <WhatsAppFloatingButton />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/atuacao/civil" element={<Civil />} />
+            <Route path="/atuacao/familia" element={<Familia />} />
+            <Route path="/atuacao/sucessoes" element={<Sucessoes />} />
+            <Route path="/atuacao/empresarial" element={<Empresarial />} />
+            <Route path="/corpo-juridico" element={<CorpoJuridico />} />
+            <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <CookieConsentBanner />
+        </CookieConsentProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
