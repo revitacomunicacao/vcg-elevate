@@ -26,11 +26,11 @@ const Home = () => {
       {content ? (
         <>
           <Hero content={content.hero} />
+          <ProvaSocial content={content.provaSocial} />
           <QuemSomos content={content.quemSomos} />
           <NossaEquipe content={content.equipe} />
           <Atuacao content={content.atuacao} />
           <Servicos content={content.servicos} />
-          <ProvaSocial content={content.provaSocial} />
         </>
       ) : null}
       <Footer />
