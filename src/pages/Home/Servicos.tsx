@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { getRegistryIcon } from "@/lib/iconRegistry";
+import InstagramFeed from "@/components/InstagramFeed";
 
 type ServicosContent = {
   sectionLabel: string;
@@ -92,6 +93,8 @@ const Servicos: FC<Props> = ({ content }) => {
             );
           })}
         </div>
+
+        <InstagramFeed />
 
         <motion.div
           {...fadeUp}
