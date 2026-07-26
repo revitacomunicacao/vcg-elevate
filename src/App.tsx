@@ -14,6 +14,7 @@ import Sucessoes from "./pages/Atuacao/Sucessoes";
 import Empresarial from "./pages/Atuacao/Empresarial";
 import CorpoJuridico from "./pages/CorpoJuridico/Index";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
+import CartaoVirtual from "./pages/CartaoVirtual";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/atuacao/empresarial" element={<Empresarial />} />
             <Route path="/corpo-juridico" element={<CorpoJuridico />} />
             <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/cartaovirtual" element={<CartaoVirtual />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsentBanner />
