@@ -1,8 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import { NAVBAR_OFFSET_PX } from "@/lib/logo";
 import { fetchCartaoVirtualContent } from "@/cms/cartaoVirtual";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 
@@ -41,57 +38,48 @@ const CartaoVirtual = () => {
   }, [pdfUrl]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main
-        className="flex-1 flex flex-col bg-background"
-        style={{ paddingTop: `${NAVBAR_OFFSET_PX}px` }}
-      >
-        <div className="flex-1 flex justify-center px-4 lg:px-8 py-6">
-          {/* Mobile: largura total | Desktop: 50vw centralizado */}
-          <div ref={viewerRef} className="w-full md:w-[50vw] max-w-full">
-            {pdfUrl && pageWidth > 0 ? (
-              loadError ? (
-                <div className="rounded-md border border-border bg-muted p-8 text-center">
-                  <a
-                    href={pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline font-sans text-sm"
-                  >
-                    Abrir PDF
-                  </a>
-                </div>
-              ) : (
-                <Document
-                  file={pdfUrl}
-                  loading={<div className="min-h-[50vh] rounded-md bg-muted" />}
-                  onLoadSuccess={({ numPages: pages }) => {
-                    setNumPages(pages);
-                    setLoadError(false);
-                  }}
-                  onLoadError={() => setLoadError(true)}
-                  externalLinkTarget="_blank"
-                >
-                  {Array.from({ length: numPages }, (_, index) => (
-                    <Page
-                      key={`page_${index + 1}`}
-                      pageNumber={index + 1}
-                      width={pageWidth}
-                      renderTextLayer={false}
-                      renderAnnotationLayer
-                      className="!bg-transparent [&_.react-pdf__Page__canvas]:max-w-full [&_.react-pdf__Page__canvas]:h-auto"
-                    />
-                  ))}
-                </Document>
-              )
-            ) : (
-              <div className="min-h-[50vh] w-full rounded-md bg-muted" />
-            )}
-          </div>
-        </div>
-      </main>
-      <Footer />
+    <div className="fixed inset-0 flex items-start justify-center overflow-auto bg-background">
+      {/* Mobile: largura total | Desktop: 50vw centralizado */}
+      <div ref={viewerRef} className="w-full md:w-[50vw] max-w-full">
+        {pdfUrl && pageWidth > 0 ? (
+          loadError ? (
+            <div className="flex min-h-screen items-center justify-center p-8 text-center">
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-sm text-primary underline"
+              >
+                Abrir PDF
+              </a>
+            </div>
+          ) : (
+            <Document
+              file={pdfUrl}
+              loading={<div className="min-h-screen bg-background" />}
+              onLoadSuccess={({ numPages: pages }) => {
+                setNumPages(pages);
+                setLoadError(false);
+              }}
+              onLoadError={() => setLoadError(true)}
+              externalLinkTarget="_blank"
+            >
+              {Array.from({ length: numPages }, (_, index) => (
+                <Page
+                  key={`page_${index + 1}`}
+                  pageNumber={index + 1}
+                  width={pageWidth}
+                  renderTextLayer={false}
+                  renderAnnotationLayer
+                  className="!bg-transparent [&_.react-pdf__Page__canvas]:max-w-full [&_.react-pdf__Page__canvas]:h-auto"
+                />
+              ))}
+            </Document>
+          )
+        ) : (
+          <div className="min-h-screen w-full bg-background" />
+        )}
+      </div>
     </div>
   );
 };

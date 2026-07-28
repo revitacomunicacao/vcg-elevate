@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +21,30 @@ const queryClient = new QueryClient();
 
 const routerBasename = import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
 
+const AppRoutes = () => {
+  const { pathname } = useLocation();
+  const isCartaoVirtual = pathname === "/cartaovirtual";
+
+  return (
+    <>
+      <ScrollToTop />
+      {!isCartaoVirtual && <WhatsAppFloatingButton />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/atuacao/civil" element={<Civil />} />
+        <Route path="/atuacao/familia" element={<Familia />} />
+        <Route path="/atuacao/sucessoes" element={<Sucessoes />} />
+        <Route path="/atuacao/empresarial" element={<Empresarial />} />
+        <Route path="/corpo-juridico" element={<CorpoJuridico />} />
+        <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
+        <Route path="/cartaovirtual" element={<CartaoVirtual />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      {!isCartaoVirtual && <CookieConsentBanner />}
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -28,20 +52,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename={routerBasename}>
         <CookieConsentProvider>
-          <ScrollToTop />
-          <WhatsAppFloatingButton />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/atuacao/civil" element={<Civil />} />
-            <Route path="/atuacao/familia" element={<Familia />} />
-            <Route path="/atuacao/sucessoes" element={<Sucessoes />} />
-            <Route path="/atuacao/empresarial" element={<Empresarial />} />
-            <Route path="/corpo-juridico" element={<CorpoJuridico />} />
-            <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
-            <Route path="/cartaovirtual" element={<CartaoVirtual />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <CookieConsentBanner />
+          <AppRoutes />
         </CookieConsentProvider>
       </BrowserRouter>
     </TooltipProvider>
