@@ -15,6 +15,10 @@ import Empresarial from "./pages/Atuacao/Empresarial";
 import CorpoJuridico from "./pages/CorpoJuridico/Index";
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import CartaoVirtual from "./pages/CartaoVirtual";
+import DivorcioPage from "./pages/lp/Divorcio";
+import InventarioPage from "./pages/lp/Inventario";
+import DanosMoraisAereosPage from "./pages/lp/DanosMoraisAereos";
+import NegativacaoIndevidaPage from "./pages/lp/NegativacaoIndevida";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +42,10 @@ const AppRoutes = () => {
         <Route path="/corpo-juridico" element={<CorpoJuridico />} />
         <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
         <Route path="/cartaovirtual" element={<CartaoVirtual />} />
+        <Route path="/divorcio" element={<DivorcioPage />} />
+        <Route path="/inventario" element={<InventarioPage />} />
+        <Route path="/danos-morais-aereos" element={<DanosMoraisAereosPage />} />
+        <Route path="/negativacao-indevida" element={<NegativacaoIndevidaPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {!isCartaoVirtual && <CookieConsentBanner />}
